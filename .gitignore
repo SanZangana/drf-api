@@ -5,5 +5,9 @@ env.py
 __pycache__/
 *.py[cod]
 node_modules/
-.github/
-cloudinary_python.txt
+
+# ignoring migrations
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
+db.sqlite3
