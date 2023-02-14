@@ -26,3 +26,4 @@ def create_account(sender, instance, created, **kwargs):
 
 
 post_save.connect(create_account, sender=User)
+
