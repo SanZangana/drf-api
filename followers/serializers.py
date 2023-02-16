@@ -2,7 +2,7 @@ from rest_framework import serializers
 from .models import Follower
 from django.db import IntegrityError
 
-class FollowerSerializer(models.ModelSerializer):
+class FollowerSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='followed.username')
 
 
@@ -14,5 +14,5 @@ class FollowerSerializer(models.ModelSerializer):
     def create(self, validated_data):
         try:
             return super().create(validated_data)
-            except IntegrityError:
+        except IntegrityError:
                 raise serializers.ValidationError({'detail': 'possible duplicate'})
