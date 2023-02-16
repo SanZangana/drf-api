@@ -1,7 +1,7 @@
 from rest_framework import generics
 from apis.permissions import IsOwnerOrReadOnly
 from .models import Account
-from .serializers import ProfileSerializer
+from .serializers import AccountSerializer
 
 
 class AccountList(generics.ListAPIView):
