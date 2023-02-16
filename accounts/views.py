@@ -1,46 +1,22 @@
-from django.http import Http404
-from rest_framework import status
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from .models import Account
-from .serializers import AccountSerializer
+from rest_framework import generics
 from apis.permissions import IsOwnerOrReadOnly
+from .models import Account
+from .serializers import ProfileSerializer
 
 
-
-class AccountsList(APIView):
-    def get(self, request):
-        accounts = Account.objects.all()
-        serializer = AccountSerializer(accounts, many=True,
-        context={'request': request})
-        return Response(serializer.data)
-
-
-class AccountDetail(APIView):
+class AccountList(generics.ListAPIView):
+    """
+    List all profiles.
+    No create view as profile creation is handled by django signals.
+    """
+    queryset = Account.objects.all()
     serializer_class = AccountSerializer
+
+
+class AccountDetail(generics.RetrieveUpdateAPIView):
+    """
+    Retrieve or update a profile if you're the owner.
+    """
     permission_classes = [IsOwnerOrReadOnly]
-
-    def get_object(self, pk):
-        try:
-            account = Account.objects.get(pk=pk)
-            self.check_object_permissions(self.request, account)
-            return account
-        except Account.DoesNotExist:
-            raise Http404
-
-    def get(self, request, pk):
-        account = self.get_object(pk)
-        serializer = AccountSerializer(
-            account, context={'request': request}
-            )
-        return Response(serializer.data)
-
-    def put(self, request, pk):
-        account = self.get_object(pk)
-        serializer = AccountSerializer(account, data=request.data, context={'request': request}
-        )
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
+    queryset = Account.objects.all()
+    serializer_class = AccountSerializer
