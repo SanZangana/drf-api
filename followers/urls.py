@@ -1,4 +1,4 @@
-from djang.urls import path
+from django.urls import path
 from followers import views
 
 urlpatterns = [
