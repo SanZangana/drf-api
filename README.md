@@ -1,10 +1,9 @@
 # API For 'Caption This'
 
-[Return to the README.md file](https://github.com/Hemenhk/locations-api/blob/main/README.md)  
 
-![Locations mockup images](assets/readme/api%20home%20page.png)
+![Caption This main page](assets/caption-this-api.png)
 
-The backend API based on Django Rest Framework (DRF), to complete the final project (PP5- Advanced front-end) for Code Institute. Together with the front-end React based project, which you can find here (**LINK**), let's the user use the full CRUD functionality (Create, Read, Update & Delete).
+The backend API based on Django Rest Framework (DRF), to complete the final project (PP5- Advanced front-end) for Code Institute. Together with the front-end React based project, which you can find here [here](https://caption-this-react.herokuapp.com/), let's the user use the full CRUD functionality (Create, Read, Update & Delete).
 
 The various pages of this API are visible to anyone who enters these URLs:
 
@@ -19,7 +18,7 @@ The various pages of this API are visible to anyone who enters these URLs:
 * /dj-rest-auth/user
 
 
-Visit the deployed application [here](https://locations-api.herokuapp.com/).
+Visit the deployed application [here](https://caption-this-react.herokuapp.com/).
 
 ## Table of Contents
 
@@ -81,27 +80,33 @@ To achieve the user goals, I wish to implement the following features:
 
 ## Features
 
-* Through the Django Rest Framework and CI DRF-API module, this fully functioning CRUD was able to deliver it main tasks. The superuser can through a form, fill and submit and finally use the CRUD without any problem.
+* Through the Django Rest Framework and CI DRF-API module, this fully functioning CRUD was able to deliver its main tasks. The superuser can through a form, fill and submit and finally use the CRUD-functionality without any problem.
 
 
 ## Technologies Used
 - Django
- - The main framework which was used to create this application
+
+     The main framework which was used to create this application
 
 - Django REST Framework (DRF)
- - The django based framework was used to create the API
+ 
+    The django based framework was used to create the API
 
 - Cloudinary
- - Platform to store/host the static images
+    
+     Platform to store/host the static images
 
 - Heroku
- - With heroku, this application had a place to be hosted
+    
+     With heroku, this application had a place to be hosted
 
 - Git
-- Used for version control
+    
+     Used for version control
 
 - Github
- - Github was used to store the docs and as a code base
+    
+     Github was used to store the docs and as a code base
 
 ### Languages Used
 
@@ -198,10 +203,10 @@ This project is deployed using Heroku, with all static files being uploaded to C
 4. In the "Connect to GitHub" section select your profile and search for the repository. When the repository appears, click on "Connect".
 5. Go to "Settings" and scroll down to "Config Vars", and click "Reveal Config Vars".
 6. Here fill in the following key & values:
-    1. ALLOWED_HOST = 
-    2. CLIENT_ORIGIN = 
+    1. ALLOWED_HOST = (https://caption-this-react.herokuapp.com/)
+    2. CLIENT_ORIGIN = (https://caption-this-react.herokuapp.com/)
     3. CLIENT_ORIGIN_DEV = (this value may change during the developing process).
-    4. CLOUDINART_URL = cloudinary://(the value beyond is private).
+    4. CLOUDINARy_URL = cloudinary://(the value beyond is private).
     5. DATABASE_URL = postgres://(the value beyond is private).
     7. SECRET_KEY = (this value is private).
 7. After all config vars have been filled make sure "Buildpacks" is set to "heroku/python".
