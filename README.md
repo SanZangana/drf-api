@@ -1,108 +1,226 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# API For 'Caption This'
 
-Welcome SanZangana,
+[Return to the README.md file](https://github.com/Hemenhk/locations-api/blob/main/README.md)  
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+![Locations mockup images](assets/readme/api%20home%20page.png)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+The backend API based on Django Rest Framework (DRF), to complete the final project (PP5- Advanced front-end) for Code Institute. Together with the front-end React based project, which you can find here (**LINK**), let's the user use the full CRUD functionality (Create, Read, Update & Delete).
 
-## Gitpod Reminders
+The various pages of this API are visible to anyone who enters these URLs:
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+* /accounts/
 
-`python3 -m http.server`
+* /posts/
 
-A blue button should appear to click: _Make Public_,
+* /likes/
 
-Another blue button should appear to click: _Open Browser_.
+* /comments/
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+* /dj-rest-auth/user
 
-A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: _Open Browser_.
+Visit the deployed application [here](https://locations-api.herokuapp.com/).
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+## Table of Contents
 
-To log into the Heroku toolbelt CLI:
+1. [User Experience (UX)](#user-experience-ux)
+   1. [Strategy](#strategy)
+      1. [Project Goals](#project-goals)
+      2. [User Goals](#user-goals)
+      3. [Strategy](#strategy)
+3. [Features](#features)
+4. [Technologies Used](#technologies-used)
+   1. [Languages Used](#languages-used)
+   2. [Libraries and Frameworks](#libraries-and-frameworks)
+   4. [Database Management](#database-management)
+    1. [Database Model](#database-model)
+   6. [Cloud Storage](#cloud-storage)
+   7. [Tools and Programs](#tools-and-programs)
+5. [Testing](#testing)
+    1. [Go to TESTING.md](https://github.com/Hemenhk/locations/blob/main/TESTING.md)
+6. [Deployment](#deployment)
+    1. [How To Use This Project](#how-to-use-this-project)  
+    2. [Deployment to Heroku](#deployment-to-heroku)   
+7. [Credits](#credits)
+    1. [Media](#media)  
+    2. [Code](#code)   
+8. [Known Bugs](#known-bugs)
+9. [Acknowledgements](#acknowledgements)
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## User Experience (UX)
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+### Strategy
 
-------
+#### Project Goals
 
-## Release History
+- Since this project is 50% of the full project, it's main purpose was to provide an functional API based system to provide the user with a functioning communication.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+#### User Goals
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+- As a user I want to be able to view all posts and individual ones.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+- As a user I want to be able to view all profiles and individual ones.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+- As a user I want to be able to view all ratings and individual ones.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+- As a user I want to be able to view all reviews and individual ones.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+- As a superuser, I want full CRUD functionality in the Django Rest Framework when developing the API.
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+### Strategy
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+To achieve the user goals, I wish to implement the following features:
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+* An URL for users to view all posts and by id
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+* An URL for users to view all accounts and by id
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+* An URL for users to view all likes and by id
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+* An URL for users to view all reviews and by id
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+## Features
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+* Through the Django Rest Framework and CI DRF-API module, this fully functioning CRUD was able to deliver it main tasks. The superuser can through a form, fill and submit and finally use the CRUD without any problem.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
 
-------
+## Technologies Used
+- Django
+ - The main framework which was used to create this application
 
-## FAQ about the uptime script
+- Django REST Framework (DRF)
+ - The django based framework was used to create the API
 
-**Why have you added this script?**
+- Cloudinary
+ - Platform to store/host the static images
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+- Heroku
+ - With heroku, this application had a place to be hosted
 
-**How will this affect me?**
+- Git
+- Used for version control
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+- Github
+ - Github was used to store the docs and as a code base
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+### Languages Used
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+- [Python](https://www.python.org/)
 
-**So….?**
+### Libraries and Frameworks
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+- [Django](https://www.djangoproject.com/) was used to build the app.
 
-**Can I opt out?**
+- [Django Rest Framework](https://www.django-rest-framework.org/) was used to build the API.
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+- [Django Allauth](https://django-allauth.readthedocs.io/) was used for authentication, registration and account management.
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+- [Django Rest Auth](https://dj-rest-auth.readthedocs.io/) was also used for registration and authentication.
 
-**Anything more?**
+- [Corsheaders](https://pypi.org/project/django-cors-headers/) was to access the API from the front end during and after development.
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+- [Google Fonts](https://fonts.google.com) was used to import fonts to the HTML file, and used throughout the project.
 
----
+- [Font Awesome](https://fontawesome.com) was used to add icons to various links.
 
-Happy coding!
+### Database Management
+
+#### Database Model
+
+The databse model was designed using [drawsql](https://drawsql.app/) The type of databases being used are SQLite3 during development, and [PostgreSQL](https://www.postgresql.org/).
+
+![Locations Database Model](src/assets/readme/database.png)
+
+- [SQLite](https://www.sqlite.com/index.html) database was used as the database during the development.
+
+- [ElephantSQL - Postgres](https://www.elephantsql.com/) database was used in production, based on Postgres and provided by ElephantSQL.
+
+### Cloud Storage
+
+- [Cloudinary](https://cloudinary.com/) was used to store static and media files.
+
+### Tools and Programs
+
+- [Git](https://git-scm.com)
+
+- [GitPod](https://gitpod.io/)
+
+- [GitHub](https://github.com/)
+
+- [Heroku](https://heroku.com)
+
+- [Chrome DevTools](https://developer.chrome.com/docs/devtools/) was used during development to debug the app.
+
+- [W3C Markup Validator](https://validator.w3.org/) was used to validate custom CSS code.
+
+- [Favicon.io](https://favicon.io) was used to add a custom favicon.
+
+## Testing
+
+The testing documentation for this project can be found [here]
+
+## Deployment
+
+The project was deployed using [GitPod](https://gitpod.io/). All code was commited to [Git](https://git-scm.com) and then pushed on to [GitHub](https://github.com/) using the terminal in [GitPod](https://gitpod.io/). The application is deployed on Heroku.
+
+### How To Use This Project
+
+To use this project, one can either fork or clone the repository.
+
+#### Forking
+
+By forking this repository you copy the original to view and make changes to the code, without affecting the original repository by following these steps:
+
+1. Log into your GitHub account.
+2. Navigate to the repository and in the upper-right corner, click on "Fork".
+3. In the "Create a new fork" page, press the "Create fork" button.
+4. To edit the code, click on the "Gitpod" button to launch your own workspace.
+5. Changes in the new repository can be merged with the original via a pull request.
+
+#### Clone GitHub Repository
+
+By cloning the GitHub repository, you can create a local copy of the original on your own system. To clone this repository follow these steps:
+
+1. Log into your GitHub account.
+2. Navigate to the repository and click the dropdown on the "Code" button..
+3. To clone using HTTPS, copy the code provided in the field.
+4. Open Git Bash and change the current directory to the location where you wish the cloned directory to be made.
+5. Type git clone, then paste the URL that you copied.
+6. Press Enter, and your local clone is created.
+
+### Deployment To Heroku
+
+This project is deployed using Heroku, with all static files being uploaded to Cloudinary. These are the steps to deploy to Heroku:
+
+1. Log in to your Heroku account.
+2. Press "Create new app", and select the desired app name and the region of which you are located, then press "Create app".
+3. Press the "Deploy" tab and click on "GitHub" in the "Deployment method" field.
+4. In the "Connect to GitHub" section select your profile and search for the repository. When the repository appears, click on "Connect".
+5. Go to "Settings" and scroll down to "Config Vars", and click "Reveal Config Vars".
+6. Here fill in the following key & values:
+    1. ALLOWED_HOST = 
+    2. CLIENT_ORIGIN = 
+    3. CLIENT_ORIGIN_DEV = (this value may change during the developing process).
+    4. CLOUDINART_URL = cloudinary://(the value beyond is private).
+    5. DATABASE_URL = postgres://(the value beyond is private).
+    7. SECRET_KEY = (this value is private).
+7. After all config vars have been filled make sure "Buildpacks" is set to "heroku/python".
+8. Make your way to "Deploy" and scroll down to "Manual deploy".
+9. Press "Deploy branch" and when the build is finished, open the app.
+
+## Credits
+
+### Code
+
+- A huge contribution for this code was the fantastic module from Code Institutes Django Rest Framework API. Without it, this particular project would not have been the same. 
+
+## Known Bugs
+
+There are no bugs that I know of.
+
+
+## Acknowledgements
+
+- My family & loved ones for having patience and showing me support through my coding journey.
+
+- The Code Institute team, without their help & modules, it would have been way harder to build this project. Their tutors, the assistance in the slack community and all the mentors deserve are all a huge contributer to my learning progression.
